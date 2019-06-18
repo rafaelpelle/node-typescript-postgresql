@@ -1,0 +1,56 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "1.0.0"
+	},
+	"host": "localhost:3000",
+	"basePath": "/",
+	"schemes": ["http"],
+	"produces": ["application/json"],
+	"paths": {
+		"/allUsers": {
+			"get": {
+				"tags": ["GET all users"],
+				"summary": "GET all users from the database",
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"400": {
+						"description": "Bad request"
+					}
+				},
+				"content": {
+					"application/json": {}
+				},
+				"parameters": []
+			}
+		},
+		"/user": {
+			"get": {
+				"tags": ["GET users"],
+				"summary": "GET a specific user from the database",
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"400": {
+						"description": "Bad request"
+					}
+				},
+				"content": {
+					"application/json": {}
+				},
+				"parameters": [
+					{
+						"name": "CPF",
+						"in": "query",
+						"description": "Specifies the user's CPF.",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		}
+	}
+}

@@ -1,3 +1,10 @@
+# IDE
+.idea
+.vscode
+
+# DIST
+dist/
+
 # Logs
 logs
 *.log
