@@ -1,3 +1,3 @@
-import searchRoutes from './user/routes'
+import userRoutes from './user/routes'
 
-export default [...searchRoutes]
+export default [...userRoutes]
