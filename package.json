@@ -20,8 +20,9 @@
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
     "express": "5.0.0-alpha.7",
+    "knex": "^0.17.6",
+    "objection": "^1.6.9",
     "pg": "^7.11.0",
-    "sequelize": "^5.8.12",
     "swagger-ui-express": "^4.0.6",
     "tsc-watch": "^2.2.1",
     "typescript": "^3.5.2"

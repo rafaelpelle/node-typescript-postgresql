@@ -1,18 +1,22 @@
 import { Request, Response, NextFunction } from 'express'
+const { User } = require('../../models/schema')
+
 
 export const getAllUsers = async (req: Request, res: Response, next: NextFunction) => {
-	// SELECT all users from database...
-	// const result = await getAllUsers()
-	const result = [
-		{ name: 'Rafael', CPF: '08194709962' },
-		{ name: 'Pelle', CPF: '08194709961' },
-	]
-	res.status(200).send(result)
+	// select * from "users";
+	const users = await User.query()
+	res.status(200).send({
+		ok: true,
+		users,
+	})
 }
 
 export const getUserByCPF = async ({ query }: Request, res: Response) => {
 	// SELECT user from database where cpf=...
-	// const result = await getUserByCPF(query.CPF)
-	const result = { name: 'Rafael', CPF: '08194709962' }
-	res.status(200).send(result)
+	// const result = await getUserByCPF(query.cpf)
+	const user = await User.query().where('cpf', query.cpf)
+	res.status(200).send({
+		ok: true,
+		user,
+	})
 }
