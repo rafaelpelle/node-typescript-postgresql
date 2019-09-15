@@ -1,3 +1,3 @@
-import userRoutes from './user/routes'
+import bookRoutes from './books/routes'
 
-export default [...userRoutes]
+export default [...bookRoutes]

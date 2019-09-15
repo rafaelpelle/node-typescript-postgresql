@@ -1,16 +1,39 @@
 # node-typescript-postgresql
-RESTful API built with Nodejs, Express, TypeScript, PostgreSQL, Swagger...
 
-Based on [Alex Permyakov well written article](https://itnext.io/production-ready-node-js-rest-apis-setup-using-typescript-postgresql-and-redis-a9525871407).
+Boilerplate code of a RESTful API built with Nodejs, Express, TypeScript, PostgreSQL...
 
+<br/>
 
-### Installation
+### Requirements
+
+```
+Docker
+Node
+Yarn (recommended)
+```
+
+### Doker setup
+
+```
+docker run -t -d -p 5432:5432 postgres:10-alpine
+```
+
+### Install dependencies
+
 ```
 yarn install
 ```
 
 ### Usage
+
 To run the development server:
+
 ```
 yarn run dev
+```
+
+To run pm2:
+
+```
+yarn run start
 ```

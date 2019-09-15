@@ -1,8 +1,10 @@
 import http from 'http'
 import express from 'express'
+import cors from 'cors'
 import { applyMiddleware, applyRoutes } from './utils'
 import middleware from './middleware'
 import routes from './services'
+import { setupDatabase } from './setup/database'
 
 process.on('uncaughtException', (e) => {
 	console.log(e)
@@ -14,11 +16,21 @@ process.on('unhandledRejection', (e) => {
 	process.exit(1)
 })
 
-const router = express()
-applyRoutes(routes, router)
-applyMiddleware(middleware, router)
+setupDatabase().then(() => {
+	const router = express()
 
-const { PORT = 3000 } = process.env
-const server = http.createServer(router)
+	router.use(
+		cors({
+			credentials: true,
+			origin: true,
+		})
+	)
 
-server.listen(PORT, () => console.log(`Server is running http://localhost:${PORT}...`))
+	applyRoutes(routes, router)
+	applyMiddleware(middleware, router)
+
+	const { PORT = 3000 } = process.env
+	http.createServer(router).listen(PORT, () => {
+		console.log(`Server running on port ${PORT}...`)
+	})
+})
