@@ -1,9 +1,10 @@
-require('dotenv-safe').config()
+import knex from 'knex'
 const knexStringcase = require('knex-stringcase')
 const { Model } = require('objection')
-import knex from 'knex'
+require('dotenv-safe').config()
 
 const { DATABASE_URL, KNEX_DEBUG } = process.env
+
 const pg = knex(
 	knexStringcase({
 		client: 'pg',
